@@ -1293,8 +1293,7 @@ let isPlaying = false;
 function initViewsCounter() {
   const viewsValueEl = document.getElementById('viewsValue');
   const deskViewsEl = document.getElementById('deskViews');
-  const baseViews = 97;
-  const API = 'https://countapi.mileshilliard.com/api/v1';
+  const baseViews = 220;
 
   function setText(n) {
     if (viewsValueEl) viewsValueEl.innerText = n;
@@ -1315,22 +1314,32 @@ function initViewsCounter() {
         clearInterval(timer);
       }
       setText(current);
-    }, 80);
+    }, 40);
   }
 
   const alreadyCounted = sessionStorage.getItem('counted_this_session');
-  const url = alreadyCounted
-    ? `${API}/get/bio_thn_views`
-    : `${API}/hit/bio_thn_views`;
+  const endpoint = alreadyCounted ? 'get' : 'hit';
 
-  fetch(url)
+  fetch(`https://abacus.jasoncameron.dev/${endpoint}/nvkn_bio/views`)
     .then(r => r.json())
     .then(data => {
       if (!alreadyCounted) sessionStorage.setItem('counted_this_session', '1');
       const apiValue = parseInt(data && data.value, 10) || 0;
       animate(baseViews + apiValue);
     })
-    .catch(() => animate(baseViews));
+    .catch(() => {
+      const fallbackUrl = alreadyCounted
+        ? 'https://countapi.mileshilliard.com/api/v1/get/bio_nvkn_views'
+        : 'https://countapi.mileshilliard.com/api/v1/hit/bio_nvkn_views';
+      fetch(fallbackUrl)
+        .then(r => r.json())
+        .then(data => {
+          if (!alreadyCounted) sessionStorage.setItem('counted_this_session', '1');
+          const apiValue = parseInt(data && data.value, 10) || 0;
+          animate(baseViews + apiValue);
+        })
+        .catch(() => animate(baseViews));
+    });
 }
 
 function loadTrack(index) {
