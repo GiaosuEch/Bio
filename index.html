@@ -1041,7 +1041,7 @@ html { scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, 0.25) rgba(25
 <img id="musicThumb" class="song-video-media" src="dislay.png" alt="">
 <div class="player-info">
 <div class="song-title-row">
-<div id="songTitle" class="song-title">V - Rainy Days</div>
+<div id="songTitle" class="song-title">Vintage, Alf Wardhana - Rainy Days</div>
 <div class="equalizer">
 <span></span><span></span><span></span><span></span>
 </div>
@@ -1303,7 +1303,7 @@ animateTitle();
 
 const avatarUserId = "1366409690979762298";
 const playlist = [
-  { title: "V - Rainy Days", src: "track_rainy_days.mp3" },
+  { title: "Vintage, Alf Wardhana - Rainy Days", src: "track_rainy_days.mp3" },
   { title: "Rex Orange County - Sunflower", src: "track1_sunflower.mp3" },
   { title: "Powfu - death bed (coffee for your head)", src: "track2_death_bed.mp3" },
   { title: "Stephen Sanchez - Until I Found You", src: "track3_until_i_found_you.mp3" },
@@ -1439,7 +1439,7 @@ function pauseMusic() {
   isPlaying = false;
   document.getElementById('playBtn').className = "fa-solid fa-play";
   document.getElementById('musicPlayerBar').classList.remove('playing');
-  pauseRain();
+  // Tiếng mưa rơi vẫn tiếp tục phát êm dịu làm nền ngay cả khi tắt/tạm dừng nhạc
 }
 
 document.getElementById('enterOverlay').addEventListener('click', () => {

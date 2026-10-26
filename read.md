@@ -16,7 +16,7 @@ Tài liệu ghi chú toàn bộ quá trình cập nhật, nâng cấp giao diệ
 ## 2. 🌧️ Tiếng Mưa Nền & Hiệu Ứng Mưa Rơi (Ambient Rain Audio & Visuals)
 - **Âm thanh mưa nền (`rain.mp3`)**:
   - Tích hợp tệp âm thanh tiếng mưa rơi êm dịu, nhẹ nhàng gõ tí tách ngoài cửa kính [`rain.mp3`](file:///D:/Nguyen/Bio/Bio/rain.mp3) (90s seamless loop, dung lượng tối ưu 1.4 MB).
-  - Tự động phát nhẹ nhàng làm nền phía dưới tiếng nhạc (âm lượng mặc định 25%).
+  - Tự động phát nhẹ nhàng làm nền phía dưới tiếng nhạc (âm lượng mặc định 25%), đặc biệt duy trì tiếng mưa rơi êm đềm liên tục ngay cả khi tắt/tạm dừng nhạc để giữ trọn vẹn không gian thư giãn.
   - Bổ sung nút bấm riêng trên thanh điều khiển nhạc: biểu tượng đám mây mưa `fa-cloud-showers-heavy` (`#rainBtn`) với hiệu ứng phát sáng xanh nước biển, cho phép người dùng bật/tắt tiếng mưa tùy ý.
 - **Hiệu ứng hạt mưa rơi trên Canvas (`#particleCanvas`)**:
   - Nâng cấp 38 hạt bụi sao cũ thành các vệt nước mưa trong suốt (`rgba(186, 224, 255, alpha)`) rơi chéo nhẹ nhàng từ trên xuống dưới, tạo chiều sâu 3D chân thực ngay trước mắt người xem.
@@ -40,7 +40,7 @@ Tài liệu ghi chú toàn bộ quá trình cập nhật, nâng cấp giao diệ
 ## 4. 🎵 Tuyển tập 11 Bài Nhạc US-UK Chill & Trình Phát Nhạc
 - Xóa 2 bài hát cũ (`nhac1.mp3`, `nhac2.mp3`).
 - Tải về và tích hợp danh sách phát nhạc chill hoàn hảo theo thứ tự:
-  1. **Track 1 (Bài mở đầu)**: `V - Rainy Days` → [`track_rainy_days.mp3`](file:///D:/Nguyen/Bio/Bio/track_rainy_days.mp3) *(Giai điệu lofi R&B êm đềm mở đầu cho ngày mưa)*
+  1. **Track 1 (Bài mở đầu)**: `Vintage, Alf Wardhana - Rainy Days` → [`track_rainy_days.mp3`](file:///D:/Nguyen/Bio/Bio/track_rainy_days.mp3) *(3:36 - Bản nhạc acoustic lofi chill từ playlist Spotify)*
   2. **Track 2**: `Rex Orange County - Sunflower` → [`track1_sunflower.mp3`](file:///D:/Nguyen/Bio/Bio/track1_sunflower.mp3)
   3. **Track 3**: `Powfu - death bed (coffee for your head)` → [`track2_death_bed.mp3`](file:///D:/Nguyen/Bio/Bio/track2_death_bed.mp3)
   4. **Track 4**: `Stephen Sanchez - Until I Found You` → [`track3_until_i_found_you.mp3`](file:///D:/Nguyen/Bio/Bio/track3_until_i_found_you.mp3)
