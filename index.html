@@ -466,10 +466,25 @@ body {
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  object-fit: cover;
-  background: #000;
+  object-fit: contain;
+  background: radial-gradient(circle, rgba(30, 41, 59, 0.95) 0%, rgba(10, 15, 26, 0.98) 100%);
   flex-shrink: 0;
   border: 2px solid rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  padding: 2px;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.song-video-media:hover {
+  transform: scale(1.1);
+  border-color: rgba(56, 189, 248, 0.7);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.45);
+}
+.music-player-bar.playing .song-video-media {
+  animation: thumbBeat 1.28s ease-in-out infinite;
+}
+@keyframes thumbBeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
 }
 
 .player-info {
@@ -842,6 +857,8 @@ html { scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, 0.25) rgba(25
   .music-player-bar .song-video-media {
     width: 64px;
     height: 64px;
+    border-radius: 16px;
+    padding: 3px;
   }
   .music-player-bar .song-title {
     font-size: 1.15rem;
@@ -1038,7 +1055,7 @@ html { scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, 0.25) rgba(25
 </div></div>
 
 <div class="music-player-bar" id="musicPlayerBar">
-<img id="musicThumb" class="song-video-media" src="dislay.png" alt="">
+<img id="musicThumb" class="song-video-media" src="dislay.png" alt="Mèo đánh nhạc" title="Bấm để đổi hoạt ảnh Mèo đánh nhạc / Doro!" role="button" tabindex="0">
 <div class="player-info">
 <div class="song-title-row">
 <div id="songTitle" class="song-title">Vintage, Alf Wardhana - Rainy Days</div>
@@ -1469,6 +1486,40 @@ if (rainBtn) {
   rainBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     toggleRain();
+  });
+}
+
+const musicThumbEl = document.getElementById('musicThumb');
+if (musicThumbEl) {
+  const thumbSources = [
+    { src: 'dislay.png', title: 'Mèo đánh nhạc 🐱 (Bấm để đổi sang Doro)' },
+    { src: 'dislay_doro.png', title: 'Doro gõ bánh 🌸 (Bấm để đổi sang Mèo đánh nhạc)' }
+  ];
+  let thumbIdx = parseInt(localStorage.getItem('nvkn_music_thumb_idx'), 10);
+  if (isNaN(thumbIdx) || thumbIdx < 0 || thumbIdx >= thumbSources.length) thumbIdx = 0;
+  musicThumbEl.src = thumbSources[thumbIdx].src;
+  musicThumbEl.title = thumbSources[thumbIdx].title;
+
+  function switchThumb() {
+    thumbIdx = (thumbIdx + 1) % thumbSources.length;
+    musicThumbEl.style.transform = 'scale(0.82)';
+    setTimeout(() => {
+      musicThumbEl.src = thumbSources[thumbIdx].src;
+      musicThumbEl.title = thumbSources[thumbIdx].title;
+      musicThumbEl.style.transform = '';
+      localStorage.setItem('nvkn_music_thumb_idx', thumbIdx);
+    }, 120);
+  }
+
+  musicThumbEl.addEventListener('click', (e) => {
+    e.stopPropagation();
+    switchThumb();
+  });
+  musicThumbEl.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      switchThumb();
+    }
   });
 }
 

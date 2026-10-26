@@ -23,12 +23,17 @@ Tài liệu ghi chú toàn bộ quá trình cập nhật, nâng cấp giao diệ
 
 ---
 
-## 3. 🐱 Cập Nhật Biểu Tượng & Ảnh Bìa Khung Cảnh (Aesthetic Icons & Artwork)
+## 3. 🐱 Cập Nhật Biểu Tượng & Hoạt Ảnh Mèo Đánh Nhạc (Animated Music Cat & Artwork)
 - **Favicon & Icon Tab (`icon.png`)**:
   - Xóa bỏ biểu tượng chữ "N" kim loại 3D cũ (vốn thuộc chủ đề cyberpunk).
   - Thay bằng biểu tượng hình tròn trong suốt cao cấp: chú mèo nhị thể ngồi bên ô cửa sổ ngắm mưa và hoa cẩm tú cầu xanh, đồng bộ hoàn hảo với khung cảnh trang web.
-- **Ảnh đại diện bài hát (`dislay.png`)**:
-  - Thay thế ảnh gif cũ bằng bức tranh bìa đĩa than vintage nghệ thuật: *"Rainy Day Melodies - Lo-fi Cat"* với chú mèo cuộn tròn ngủ êm ái trên chăn len cạnh tách trà nóng bên khung cửa mưa.
+- **Hoạt ảnh đại diện bài hát (`dislay.png`)**:
+  - Tích hợp hoạt ảnh chuyển động 16 khung hình mượt mà: **Chú mèo Bongo Cat đánh trống theo điệu nhạc** ("con mèo đang đánh nhạc") với đôi tai nhấp nhô, bàn chân đệm hồng gõ trống bongo tạo tia sóng âm cùng các nốt nhạc (♪ ♫ ♬ ♩) bay lượn sinh động trên nền trong suốt.
+  - Định dạng chuẩn APNG & GIF (`dislay.png`, `dislay_cat.gif`) hoạt động mượt mà trên tất cả các trình duyệt.
+- **Bảo tồn nhân vật cũ (`dislay_doro.png`) & Tính năng chuyển đổi linh hoạt**:
+  - Giữ lại đầy đủ hoạt ảnh nhân vật cũ (Doro gõ bánh macarons) thành tệp [`dislay_doro.png`](file:///D:/Nguyen/Bio/Bio/dislay_doro.png).
+  - Thêm tính năng tương tác: **Bấm trực tiếp vào thumbnail nhạc (`#musicThumb`) để chuyển đổi qua lại giữa Mèo đánh nhạc 🐱 và Doro gõ bánh 🌸**.
+  - Tự động lưu lựa chọn của người dùng vào `localStorage ('nvkn_music_thumb_idx')` để giữ nguyên trạng thái khi tải lại trang.
 - **Văn bản & Tiêu đề**:
   - Tiêu đề tab động: `Bio Link - Nguyen 🌧️🐱🌿`
   - Dòng tiểu sử: `Ngủ ngày mưa 💤 🌧️`
@@ -66,11 +71,14 @@ Tài liệu ghi chú toàn bộ quá trình cập nhật, nâng cấp giao diệ
 ```text
 D:\Nguyen\Bio\Bio\
 ├── bg.mp4                     (Video nền mèo ngắm mưa H.264 Web Optimized)
-├── dislay.png                 (Bìa album Rainy Day Melodies Lo-fi Cat)
+├── dislay.png                 (Hoạt ảnh chú mèo Bongo Cat đánh nhạc theo nhịp APNG)
+├── dislay_cat.gif             (Bản sao GIF hoạt ảnh chú mèo đánh nhạc)
+├── dislay_doro.png            (Hoạt ảnh nhân vật Doro gõ bánh macaron gốc)
 ├── icon.png                   (Favicon chú mèo bên cửa sổ mưa trong suốt)
-├── index.html                 (Mã nguồn chính tích hợp âm thanh mưa & nhạc)
+├── index.html                 (Mã nguồn chính tích hợp âm thanh mưa, nhạc & chuyển đổi thumbnail)
 ├── rain.mp3                   (Âm thanh tiếng mưa rơi êm dịu làm nền)
 ├── read.md                    (Tệp nhật ký thay đổi này)
+├── track_rainy_days.mp3       (Vintage, Alf Wardhana - Rainy Days)
 ├── track1_sunflower.mp3       (Rex Orange County - Sunflower)
 ├── track2_death_bed.mp3       (Powfu - death bed)
 ├── track3_until_i_found_you.mp3 (Stephen Sanchez - Until I Found You)
