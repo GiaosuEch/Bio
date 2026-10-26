@@ -37,19 +37,20 @@ Tài liệu ghi chú toàn bộ quá trình cập nhật, nâng cấp giao diệ
 
 ---
 
-## 4. 🎵 Tuyển tập 10 Bài Nhạc US-UK Chill & Trình Phát Nhạc
+## 4. 🎵 Tuyển tập 11 Bài Nhạc US-UK Chill & Trình Phát Nhạc
 - Xóa 2 bài hát cũ (`nhac1.mp3`, `nhac2.mp3`).
-- Tải về và tích hợp 10 bài nhạc US-UK bản đầy đủ:
-  1. **Track 1**: `Rex Orange County - Sunflower` → [`track1_sunflower.mp3`](file:///D:/Nguyen/Bio/Bio/track1_sunflower.mp3) *(Bài mở đầu)*
-  2. **Track 2**: `Powfu - death bed (coffee for your head)` → [`track2_death_bed.mp3`](file:///D:/Nguyen/Bio/Bio/track2_death_bed.mp3)
-  3. **Track 3**: `Stephen Sanchez - Until I Found You` → [`track3_until_i_found_you.mp3`](file:///D:/Nguyen/Bio/Bio/track3_until_i_found_you.mp3)
-  4. **Track 4**: `dhruv - double take` → [`track4_double_take.mp3`](file:///D:/Nguyen/Bio/Bio/track4_double_take.mp3)
-  5. **Track 5**: `Jeremy Zucker - comethru` → [`track5_comethru.mp3`](file:///D:/Nguyen/Bio/Bio/track5_comethru.mp3)
-  6. **Track 6**: `d4vd - Here With Me` → [`track6_here_with_me.mp3`](file:///D:/Nguyen/Bio/Bio/track6_here_with_me.mp3)
-  7. **Track 7**: `Ricky Montgomery - Line Without a Hook` → [`track7_line_without_a_hook.mp3`](file:///D:/Nguyen/Bio/Bio/track7_line_without_a_hook.mp3)
-  8. **Track 8**: `Laufey - Falling Behind` → [`track8_falling_behind.mp3`](file:///D:/Nguyen/Bio/Bio/track8_falling_behind.mp3)
-  9. **Track 9**: `New West - Those Eyes` → [`track9_those_eyes.mp3`](file:///D:/Nguyen/Bio/Bio/track9_those_eyes.mp3)
-  10. **Track 10**: `JVKE - golden hour` → [`track10_golden_hour.mp3`](file:///D:/Nguyen/Bio/Bio/track10_golden_hour.mp3)
+- Tải về và tích hợp danh sách phát nhạc chill hoàn hảo theo thứ tự:
+  1. **Track 1 (Bài mở đầu)**: `V - Rainy Days` → [`track_rainy_days.mp3`](file:///D:/Nguyen/Bio/Bio/track_rainy_days.mp3) *(Giai điệu lofi R&B êm đềm mở đầu cho ngày mưa)*
+  2. **Track 2**: `Rex Orange County - Sunflower` → [`track1_sunflower.mp3`](file:///D:/Nguyen/Bio/Bio/track1_sunflower.mp3)
+  3. **Track 3**: `Powfu - death bed (coffee for your head)` → [`track2_death_bed.mp3`](file:///D:/Nguyen/Bio/Bio/track2_death_bed.mp3)
+  4. **Track 4**: `Stephen Sanchez - Until I Found You` → [`track3_until_i_found_you.mp3`](file:///D:/Nguyen/Bio/Bio/track3_until_i_found_you.mp3)
+  5. **Track 5**: `dhruv - double take` → [`track4_double_take.mp3`](file:///D:/Nguyen/Bio/Bio/track4_double_take.mp3)
+  6. **Track 6**: `Jeremy Zucker - comethru` → [`track5_comethru.mp3`](file:///D:/Nguyen/Bio/Bio/track5_comethru.mp3)
+  7. **Track 7**: `d4vd - Here With Me` → [`track6_here_with_me.mp3`](file:///D:/Nguyen/Bio/Bio/track6_here_with_me.mp3)
+  8. **Track 8**: `Ricky Montgomery - Line Without a Hook` → [`track7_line_without_a_hook.mp3`](file:///D:/Nguyen/Bio/Bio/track7_line_without_a_hook.mp3)
+  9. **Track 9**: `Laufey - Falling Behind` → [`track8_falling_behind.mp3`](file:///D:/Nguyen/Bio/Bio/track8_falling_behind.mp3)
+  10. **Track 10**: `New West - Those Eyes` → [`track9_those_eyes.mp3`](file:///D:/Nguyen/Bio/Bio/track9_those_eyes.mp3)
+  11. **Track 11**: `JVKE - golden hour` → [`track10_golden_hour.mp3`](file:///D:/Nguyen/Bio/Bio/track10_golden_hour.mp3)
 
 ---
 
