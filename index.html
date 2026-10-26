@@ -466,14 +466,10 @@ body {
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  object-fit: contain;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  object-fit: cover;
+  background: #000;
   flex-shrink: 0;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
-  padding: 3px;
+  border: 2px solid rgba(255, 255, 255, 0.25);
 }
 
 .player-info {
@@ -934,7 +930,7 @@ html { scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, 0.25) rgba(25
 </div>
 <i class="fa-solid fa-arrow-up-right-from-square action-icon"></i>
 </a>
-<a href="https://github.com/BuriNguyen0912" target="_blank" rel="noopener noreferrer" class="link-card github">
+<a href="https://github.com/GiaosuEch" target="_blank" rel="noopener noreferrer" class="link-card github">
 <div class="link-left">
 <i class="fa-brands fa-github"></i>
 <span>GitHub</span>
@@ -1006,7 +1002,7 @@ html { scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, 0.25) rgba(25
 </div>
 </a>
 
-<a href="https://github.com/BuriNguyen0912" target="_blank" rel="noopener noreferrer" class="social-link-enhanced">
+<a href="https://github.com/GiaosuEch" target="_blank" rel="noopener noreferrer" class="social-link-enhanced">
 <div class="social-link-icon gh"><i class="fa-brands fa-github"></i></div>
 <div class="social-link-text">
 <div class="social-link-title">GitHub</div>
@@ -1026,7 +1022,7 @@ html { scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, 0.25) rgba(25
 <img id="musicThumb" class="song-video-media" src="dislay.png" alt="">
 <div class="player-info">
 <div class="song-title-row">
-<div id="songTitle" class="song-title">Microdose</div>
+<div id="songTitle" class="song-title">Rex Orange County - Sunflower</div>
 <div class="equalizer">
 <span></span><span></span><span></span><span></span>
 </div>
@@ -1064,7 +1060,7 @@ document.addEventListener('keydown', function (e) {
   }
 });
 
-const fullTitle = "Bio Link - Nguyen 🍂✨";
+const fullTitle = "Bio Link - Nguyen 🌙✨";
 let charIndex = 0;
 let isDeleting = false;
 function animateTitle() {
@@ -1283,8 +1279,16 @@ animateTitle();
 
 const avatarUserId = "1366409690979762298";
 const playlist = [
-  { title: "Microdose", src: "nhac1.mp3" },
-  { title: "Sweet Boy", src: "nhac2.mp3" }
+  { title: "Rex Orange County - Sunflower", src: "track1_sunflower.mp3" },
+  { title: "Powfu - death bed (coffee for your head)", src: "track2_death_bed.mp3" },
+  { title: "Stephen Sanchez - Until I Found You", src: "track3_until_i_found_you.mp3" },
+  { title: "dhruv - double take", src: "track4_double_take.mp3" },
+  { title: "Jeremy Zucker - comethru", src: "track5_comethru.mp3" },
+  { title: "d4vd - Here With Me", src: "track6_here_with_me.mp3" },
+  { title: "Ricky Montgomery - Line Without a Hook", src: "track7_line_without_a_hook.mp3" },
+  { title: "Laufey - Falling Behind", src: "track8_falling_behind.mp3" },
+  { title: "New West - Those Eyes", src: "track9_those_eyes.mp3" },
+  { title: "JVKE - golden hour", src: "track10_golden_hour.mp3" }
 ];
 let currentTrack = 0;
 const audio = new Audio();
@@ -1293,52 +1297,54 @@ let isPlaying = false;
 function initViewsCounter() {
   const viewsValueEl = document.getElementById('viewsValue');
   const deskViewsEl = document.getElementById('deskViews');
-  const baseViews = 220;
+  const API_BASE = 'https://abacus.jasoncameron.dev';
+  const NAMESPACE = 'nvkn-real-bio';
+  const KEY = 'pageviews';
 
   function setText(n) {
     if (viewsValueEl) viewsValueEl.innerText = n;
     if (deskViewsEl) deskViewsEl.innerText = n;
   }
 
-  setText(baseViews);
+  const cachedViews = parseInt(localStorage.getItem('nvkn_cached_views'), 10) || 1;
+  setText(cachedViews);
 
-  function animate(total) {
-    let current = baseViews;
-    const target = Math.max(baseViews, total);
-    setText(current);
-    if (target <= current) return;
+  function animate(target) {
+    let current = Math.max(0, target - 20);
+    if (current >= target) {
+      setText(target);
+      return;
+    }
+    const stepTime = Math.max(25, Math.floor(1000 / (target - current)));
     const timer = setInterval(() => {
       current += 1;
+      setText(current);
       if (current >= target) {
-        current = target;
         clearInterval(timer);
       }
-      setText(current);
-    }, 40);
+    }, stepTime);
   }
 
   const alreadyCounted = sessionStorage.getItem('counted_this_session');
-  const endpoint = alreadyCounted ? 'get' : 'hit';
+  const endpoint = alreadyCounted
+    ? `${API_BASE}/get/${NAMESPACE}/${KEY}`
+    : `${API_BASE}/hit/${NAMESPACE}/${KEY}`;
 
-  fetch(`https://abacus.jasoncameron.dev/${endpoint}/nvkn_bio/views`)
-    .then(r => r.json())
+  fetch(endpoint)
+    .then(r => {
+      if (!r.ok) throw new Error('API response not ok');
+      return r.json();
+    })
     .then(data => {
       if (!alreadyCounted) sessionStorage.setItem('counted_this_session', '1');
-      const apiValue = parseInt(data && data.value, 10) || 0;
-      animate(baseViews + apiValue);
+      const val = parseInt(data && data.value, 10);
+      if (!isNaN(val) && val > 0) {
+        localStorage.setItem('nvkn_cached_views', val);
+        animate(val);
+      }
     })
     .catch(() => {
-      const fallbackUrl = alreadyCounted
-        ? 'https://countapi.mileshilliard.com/api/v1/get/bio_nvkn_views'
-        : 'https://countapi.mileshilliard.com/api/v1/hit/bio_nvkn_views';
-      fetch(fallbackUrl)
-        .then(r => r.json())
-        .then(data => {
-          if (!alreadyCounted) sessionStorage.setItem('counted_this_session', '1');
-          const apiValue = parseInt(data && data.value, 10) || 0;
-          animate(baseViews + apiValue);
-        })
-        .catch(() => animate(baseViews));
+      setText(cachedViews);
     });
 }
 
