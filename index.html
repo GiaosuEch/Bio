@@ -1323,6 +1323,7 @@ const playlist = [
   { title: "Vintage, Alf Wardhana - Rainy Days", src: "track_rainy_days.mp3" },
   { title: "Rex Orange County - Sunflower", src: "track1_sunflower.mp3" },
   { title: "Daniel Caesar - Who Knows", src: "track_who_knows.mp3" },
+  { title: "Daniel Caesar - Superpowers", src: "track_superpowers.mp3" },
   { title: "Powfu - death bed (coffee for your head)", src: "track2_death_bed.mp3" },
   { title: "Stephen Sanchez - Until I Found You", src: "track3_until_i_found_you.mp3" },
   { title: "dhruv - double take", src: "track4_double_take.mp3" },
@@ -1335,6 +1336,7 @@ const playlist = [
 ];
 let currentTrack = 0;
 const audio = new Audio();
+audio.volume = 0.30;
 let isPlaying = false;
 
 function initViewsCounter() {
@@ -1394,13 +1396,14 @@ function initViewsCounter() {
 function loadTrack(index) {
   currentTrack = index;
   audio.src = playlist[index].src;
+  audio.volume = 0.30;
   document.getElementById('songTitle').innerText = playlist[index].title;
   document.getElementById('progressFill').style.width = '0%';
   document.getElementById('currentTime').innerText = "0:00";
 }
 const rainAudio = new Audio('rain.mp3');
 rainAudio.loop = true;
-rainAudio.volume = 0.25;
+rainAudio.volume = 0.12;
 let isRainMuted = false;
 
 function playRain() {
